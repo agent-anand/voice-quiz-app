@@ -321,7 +321,7 @@ with st.sidebar:
                         
                         loader = PyPDFLoader(temp_file_path)
                         docs = loader.load()
-                        text_splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=200)
+                        text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=500)
                         chunks = text_splitter.split_documents(docs)
                         content_input = " ".join([chunk.page_content for chunk in chunks])
                         st.session_state.quiz_context = content_input
