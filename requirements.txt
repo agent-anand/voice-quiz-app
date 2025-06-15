@@ -1,0 +1,10 @@
+streamlit
+openai
+langchain
+gtts
+python-dotenv
+pypdf
+langchain-openai
+streamlit-audiorec
+google-search-results
+langchain-community
