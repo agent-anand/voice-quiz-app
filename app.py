@@ -179,6 +179,13 @@ class QuestionGenerator:
         self.llm = llm
         self.search_tool = search_tool
 
+    # Define DIFFICULTY_GUIDELINES as a class attribute
+    DIFFICULTY_GUIDELINES = {
+        "Easy": "Questions should test direct recall of information. Use simple vocabulary. The correct answer should be obvious from direct textual evidence.",
+        "Medium": "Questions may require basic comprehension or simple inference. Options should be plausible distractors, requiring careful reading. Use moderate vocabulary.",
+        "Hard": "Questions should require deeper analysis, synthesis of information, or complex inference. Options might be very close, requiring subtle distinctions or understanding of implications. Use advanced vocabulary and concepts."
+    }
+
     def _parse_llm_response(self, raw_text: str) -> list[dict]:
         """
         Parses the raw text response from the LLM into a list of question dictionaries.
@@ -268,15 +275,8 @@ class QuestionGenerator:
         if not self.llm:
             st.error("LLM not initialized. Cannot generate questions.")
             return None
-        
-        # In QuestionGenerator class
-        DIFFICULTY_GUIDELINES = {
-            "Easy": "Questions should test direct recall of information. Use simple vocabulary. The correct answer should be obvious from direct textual evidence.",
-            "Medium": "Questions may require basic comprehension or simple inference. Options should be plausible distractors, requiring careful reading. Use moderate vocabulary.",
-            "Hard": "Questions should require deeper analysis, synthesis of information, or complex inference. Options might be very close, requiring subtle distinctions or understanding of implications. Use advanced vocabulary and concepts."
-        }
 
-        # Then in generate_mcqs:
+        # Access DIFFICULTY_GUIDELINES as a class attribute
         difficulty_instruction = f"Generate questions. {self.DIFFICULTY_GUIDELINES[difficulty]}"
 
 
