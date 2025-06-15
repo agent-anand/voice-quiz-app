@@ -115,7 +115,7 @@ The following features are recommended for immediate implementation:
 
 5. **Run the application**:
    ```bash
-   streamlit run quiz_app.py
+   streamlit run app.py
    ```
 
 6. **Access the app**:
@@ -124,7 +124,7 @@ The following features are recommended for immediate implementation:
 ## Usage
 1. Run the application:
    ```bash
-   streamlit run quiz_app.py
+   streamlit run app.py
    ```
 
 2. Open the app in your browser (default: `http://localhost:8501`).
@@ -140,7 +140,7 @@ The following features are recommended for immediate implementation:
 ## Project Structure
 ```
 .
-├── quiz_app.py       # Main application file
+├── app.py       # Main application file
 ├── .env              # Environment variables for API keys
 ├── requirements.txt  # Python dependencies
 └── README.md         # Project documentation
