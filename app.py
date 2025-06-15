@@ -82,7 +82,15 @@ def generate_mcqs_via_llm(content: str, num_questions: int = 3, context_source_t
         return None
 
     # Add difficulty instruction to the prompt
-    difficulty_instruction = f"Generate {difficulty.lower()} level questions."
+    # In QuestionGenerator class
+    DIFFICULTY_GUIDELINES = {
+        "Easy": "Questions should test direct recall of information. Use simple vocabulary. The correct answer should be obvious from direct textual evidence.",
+        "Medium": "Questions may require basic comprehension or simple inference. Options should be plausible distractors, requiring careful reading. Use moderate vocabulary.",
+        "Hard": "Questions should require deeper analysis, synthesis of information, or complex inference. Options might be very close, requiring subtle distinctions or understanding of implications. Use advanced vocabulary and concepts."
+    }
+
+    # Then in generate_mcqs:
+    difficulty_instruction = f"Generate questions. {DIFFICULTY_GUIDELINES[difficulty]}"
 
     if context_source_type == "topic" and search_tool:
         task_description_for_agent = (
