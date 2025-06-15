@@ -24,7 +24,7 @@ SERPAPI_API_KEY = os.getenv("SERPAPI_API_KEY")
 openai_client = None
 if OPENAI_API_KEY:
     try:
-        llm = ChatOpenAI(model_name="gpt-4o", temperature=0.3, openai_api_key=OPENAI_API_KEY)
+        llm = ChatOpenAI(model_name="gpt-4o", temperature=0.7, openai_api_key=OPENAI_API_KEY)
         openai_client = OpenAI(api_key=OPENAI_API_KEY) # Initialize OpenAI client
     except Exception as e:
         st.error(f"Error initializing LLM or OpenAI client. Details: {e}")
